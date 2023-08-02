@@ -4,6 +4,7 @@ require("dotenv").config();
 // Import necessary libraries
 const express = require("express");
 const cors = require("cors");
+const cookieParser = require('cookie-parser')
 const rateLimit = require("express-rate-limit");
 const passport = require("passport");
 const socketio = require("socket.io");
@@ -37,6 +38,8 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Enable cross-origin requests
 app.use(cors());
+// cookie parser
+app.use(cookieParser())
 
 // Set up error-handling middleware
 app.use((err, req, res, next) => {
